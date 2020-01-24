@@ -629,21 +629,6 @@
       - patch
       - rule_1.4.1
 
-- name: "SCORED | 1.4.2 | PATCH | Ensure bootloader password is set"
-  grub_crypt:
-      password: "{{ ubuntu1604cis_bootloader_password }}"
-  register: grub_pass
-  when:
-      - ubuntu1604cis_set_boot_pass
-      - ubuntu1604cis_rule_1_4_2
-  tags:
-      - level1
-      - scored
-      - grub
-      - patch
-      - rule_1.4.2
-      - notimplemented
-
 - name: "NOTSCORED | 1.4.3 | PATCH | Ensure authentication required for single user mode"
   command: /bin/true
   changed_when: false
